@@ -116,7 +116,7 @@ int SplineTrailSource::getNumStationaryLevels(
   return 0;
 #else
 
-  for (int level = (levelTimes.size() - 1); level > 0; --level) {
+  for (int level = static_cast<int>(levelTimes.size()) - 1; level > 0; --level) {
     if (level == (levelTimes.size() - 1)) {
       lastTM = getTrailTM(trailIdx, levelTimes[level], levelTimes);
     } else {
@@ -518,7 +518,7 @@ int ParticleTrailSource::getNumStationaryLevels(
   Matrix3 lastTM;
   Matrix3 curTM;
 
-  for (int level = (levelTimes.size() - 1); level > 0; --level) {
+  for (int level = static_cast<int>(levelTimes.size()) - 1; level > 0; --level) {
     if (level == (levelTimes.size() - 1)) {
       lastTM = getTrailTM(trailIdx, levelTimes[level], levelTimes);
     } else {

@@ -148,7 +148,7 @@ void ParticleState::deleteKey(int idx) {
 
 // ---------------------------------------------------------------------------
 
-int ParticleState::numKeys() const { return keys_.size(); }
+int ParticleState::numKeys() const { return static_cast<int>(keys_.size()); }
 
 // ---------------------------------------------------------------------------
 
@@ -217,12 +217,12 @@ void ParticleSystemState::setTimePeriod(const TimeValue& start,
 
 // ---------------------------------------------------------------------------
 
-int ParticleSystemState::numParticles() const { return particles.size(); }
+int ParticleSystemState::numParticles() const { return static_cast<int>(particles.size()); }
 
 // ---------------------------------------------------------------------------
 
 ParticleState& ParticleSystemState::getParticle(int idx) {
-  GTASSERT((idx >= 0) && (idx < particles.size()));
+  GTASSERT((idx >= 0) && (idx < static_cast<int>(particles.size()) ));
   return particles[idx];
 }
 
@@ -381,7 +381,7 @@ IOResult ParticleSystemState::save(ISave* isave) {
   if (isave->Write(&pstI, sizeof(int), &nb) != IO_OK) return IO_ERROR;
 
   // write each particle.
-  int numParticles = particles.size();
+  int numParticles = static_cast<int>(particles.size());
   if (isave->Write(&numParticles, sizeof(int), &nb) != IO_OK) return IO_ERROR;
 
   for (int i = 0; i < numParticles; i++) {

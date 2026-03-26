@@ -812,10 +812,9 @@ void GhostTrails::ModifyObject(TimeValue t, ModContext& mc, ObjectState* os,
     // DebugPrint("Num Active Trails at %d = %d (of %d)\n", wv.t /
     // GetTicksPerFrame(), wv.numActiveTrails, wv.trailSource->numTrails());
 
-    wv.verts = wv.numActiveTrails * wv.levelVerts * (wv.caLevelTimes.size());
-    wv.tVerts = wv.numActiveTrails * wv.caLevelTimes.size() * wv.levelTVerts;
-    wv.faces =
-      wv.numActiveTrails * wv.levelFaces * (wv.caLevelTimes.size() - 1);
+    wv.verts = wv.numActiveTrails * wv.levelVerts * static_cast<int>(wv.caLevelTimes.size());
+    wv.tVerts = wv.numActiveTrails * wv.levelTVerts * static_cast<int>(wv.caLevelTimes.size());
+    wv.faces = wv.numActiveTrails * wv.levelFaces * (static_cast<int>(wv.caLevelTimes.size()) - 1);
 
     mesh.setNumVerts(wv.verts);
     mesh.setNumFaces(wv.faces);
@@ -1147,8 +1146,7 @@ void GhostTrails::buildMeshFaces(GTWorkingValues& wv) {
           // v1, v2, v3, v4);
           if (wv.texturing) {
             // Where in the tvert array this trail's tverts start
-            int baseTVert =
-              activeTrailCount * wv.caLevelTimes.size() * wv.levelTVerts;
+            int baseTVert = activeTrailCount * static_cast<int>(wv.caLevelTimes.size()) * wv.levelTVerts;
 
             // int tv1 = baseTVert + piece;
             int tv1 = baseTVert + ((pieces + 1) * level) + piece;
@@ -1176,7 +1174,7 @@ void GhostTrails::buildMeshFaces(GTWorkingValues& wv) {
 
             // where in the age tvert array this trail's tverts start
             int baseTVertAge =
-              activeTrailCount * wv.caLevelTimes.size() * wv.levelTVerts;
+              activeTrailCount * static_cast<int>(wv.caLevelTimes.size()) * wv.levelTVerts;
 
             int atv1 = baseTVertAge + ((pieces + 1) * level) + piece;
             int atv2 = atv1 + 1;
@@ -1346,8 +1344,8 @@ void GhostTrails::calculateTrailTimes(GTWorkingValues& wv) {
 
   if (wv.caLevelTimes.size() < 2) throw CModifyException();
 
-  int siz1 = wv.caLevelTimes.size();
-  int siz2 = this->caElimVStretchCache.size();
+  int siz1 = static_cast<int>(wv.caLevelTimes.size());
+  int siz2 = static_cast<int>(this->caElimVStretchCache.size());
 
   if (IsParticleTrails())
     wv.bUsingCache = FALSE;
@@ -1356,8 +1354,8 @@ void GhostTrails::calculateTrailTimes(GTWorkingValues& wv) {
     // anchored trail grows.
     ElimVStretch(wv);
 
-    int levelCount = wv.caLevelTimes.size();
-    int cacheCount = this->caElimVStretchCache.size();
+    int levelCount = static_cast<int>(wv.caLevelTimes.size());
+    int cacheCount = static_cast<int>(this->caElimVStretchCache.size());
 
     wv.bUsingCache =
       ((levelCount <= cacheCount) && wv.bIsPathAnchored) ? TRUE : FALSE;
@@ -1400,7 +1398,7 @@ void GhostTrails::buildMeshUVAgeVertices(GTWorkingValues& wv) {
 
   Mesh& mesh = wv.tri->GetMesh();
 
-  int numTimes = wv.caLevelTimes.size();
+  int numTimes = static_cast<int>(wv.caLevelTimes.size());
 
   int numAgeVerts = wv.numActiveTrails * numTimes * wv.levelTVerts;
 
@@ -1954,11 +1952,16 @@ TCHAR* GhostTrails::GetObjectName()
 
 // ----------------------------------------------------------------------------
 
+#if MAX_VERSION_MAJOR < 29
 ChannelMask GhostTrails::ChannelsUsed() { return PART_GEOM | PART_TOPO; }
 
-// ----------------------------------------------------------------------------
-
 ChannelMask GhostTrails::ChannelsChanged() { return PART_ALL; }
+#else
+// 3ds Max 2027+: Channelmask is now an enum 
+ChannelMask GhostTrails::ChannelsUsed() { return (ChannelMask)(PART_GEOM | PART_TOPO); }
+
+ChannelMask GhostTrails::ChannelsChanged() { return (ChannelMask)PART_ALL; }
+#endif
 
 // ----------------------------------------------------------------------------
 
