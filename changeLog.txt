@@ -1,12 +1,21 @@
 CHANGELOG
 =========
 
+3.8.1.0 (2026-03-26) by Josef 'spacefrog' Wienerroither
+-------
+  - 3dsmax 2027 build.
+  - small compile warning fixes
+
+3.8.0.0 (2025-03-30) by Josef 'spacefrog' Wienerroither
+-------
+  - 3dsmax 2026 build.
+  - No code change in this release
+
 3.8.0.0 (2024-04-18) by Josef 'spacefrog' Wienerroither
 -------
   - 3dsmax 2025 build.
   - Project cleanup, conversion to propertysheet based configuration
     ( currently limited to 3ds Max 2017 - 2025 builds).
-
 
 3.7.0.0 (2024-02-24)
 -------

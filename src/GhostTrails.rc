@@ -41,7 +41,7 @@ BEGIN
     CONTROL         "",IDC_MAIN_FRAMES_SPIN,"SpinnerControl",0x0,93,68,7,10
     CONTROL         "",IDC_MAIN_STARTFRAME_SPIN,"SpinnerControl",0x0,93,111,7,10
     CONTROL         "",IDC_MAIN_ENDFRAME_SPIN,"SpinnerControl",0x0,93,123,7,10
-    CTEXT           "GhostTrails 3.80",IDC_STATIC,7,7,94,9
+    CTEXT           "GhostTrails 3.81",IDC_STATIC,7,7,94,9
     CTEXT           "Free Version",IDC_MAIN_LICTEXT,7,39,94,10
     CONTROL         "Enable Debug Logging",IDC_ENABLE_LOGGING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,139,89,10
 END
@@ -99,213 +99,14 @@ BEGIN
     CONTROL         "Fade In",IDC_APPLY_FADE_OUT,"Button",BS_AUTORADIOBUTTON | NOT WS_VISIBLE,38,7,63,10
 END
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_PANEL_MAIN, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 101
-        VERTGUIDE, 55
-        VERTGUIDE, 56
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 149
-    END
-
-    IDD_PANEL_MESHPARAMS, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 101
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 160
-    END
-
-    IDD_PANEL_APPLY, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 101
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 101
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-
-#ifdef APSTUDIO_INVOKED
-/////////////////////////////////////////////////////////////////////////////
-//
-// TEXTINCLUDE
-//
-
-1 TEXTINCLUDE 
-BEGIN
-    "resource.h\0"
-END
-
-2 TEXTINCLUDE 
-BEGIN
-    "#include ""afxres.h""\r\n"
-    "\0"
-END
-
-3 TEXTINCLUDE 
-BEGIN
-    "\r\n"
-    "\0"
-END
-
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 3,8,0,0
- PRODUCTVERSION 3,8,0,0
- FILEFLAGSMASK 0x3fL
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x40004L
- FILETYPE 0x2L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040904b0"
-        BEGIN
-            VALUE "Comments", "GhostTrails ghosting modifier for 3dsmax"
-            VALUE "CompanyName", "http://www.ghosttrails.net"
-            VALUE "FileDescription", "GhostTrails"
-            VALUE "FileVersion", "3.8.0.0"
-            VALUE "InternalName", "GhostTrails"
-            VALUE "LegalCopyright", "Copyright 2000-2024 Andrew Reid"
-            VALUE "OriginalFilename", "GhostTrails.dlm"
-            VALUE "ProductName", "GhostTrails"
-            VALUE "ProductVersion", "3.8.0.0"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x409, 1200
-    END
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// AFX_DIALOG_LAYOUT
-//
-
-IDD_PANEL_MAIN AFX_DIALOG_LAYOUT
-BEGIN
-    0
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// String Table
-//
-
-STRINGTABLE
-BEGIN
-    IDS_LIBDESCRIPTION      "GhostTrails"
-    IDS_CATEGORY            "Bytegeist Software"
-    IDS_CLASS_NAME          "GhostTrails"
-    IDS_PARAMS1             "Parameters"
-    IDS_SPIN                "Spin"
-    IDS_FRAMES_SPIN         "Frames"
-    IDS_SEGMENTS_SPIN       "Segments"
-    IDS_FLIPNORMALS         "Flip Normals"
-    IDS_OLDFRAMES_SPIN      "Frames"
-    IDS_SPLINESTEPS_SPIN    "Spline Steps"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_STARTFRAME_SPIN     "Start Frame"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_ENDFRAME_SPIN       "End Frame"
-    IDS_SEGSPERFRAME_SPIN   "Segments Per Frame"
-    IDS_PARAMS2             "Mesh Parameters"
-    IDS_MOVINGORANCHORED    "Type"
-    IDS_UREPEAT_SPIN        "U Repeat"
-    IDS_VREPEAT_SPIN        "V Repeat"
-    IDS_PARAMS4             "Particle Trails"
-    IDS_APPLY_TEX_B         "Apply Texture"
-    IDS_APPLY_TEX_EDIT      "Texture Path"
-    IDS_APPLY_FADE_B        "Fade"
-    IDS_APPLY_FADE_START    "Fade Start Color"
-    IDS_APPLY_FADE_END      "Fade End Color"
-    IDS_APPLY_FADE_TO       "Fade To"
-    IDS_APPLY_REORIENT_B    "Reorient"
-    IDS_APPLY_TEX_VREPEAT   "Repeat lengthways"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_APPLY_FADE_MP       "Fade Midpoint (similar to gradient midpoint)"
-    IDS_APPLY_FADE_INOUT    "Fade-In or Fade-Out"
-    IDS_PARAMS3             "Effects"
-    IDS_USERANGE            "Use Range"
-    IDS_PARTICLE_B          "Use Particle Trails"
-    IDS_PARTICLE_NODE       "Particle Node"
-    IDS_PARTICLE_NODE_PROMPT "Choose a Particle System"
-    IDS_GENERATE_MAP        "Generate UV Mapping"
-    IDS_GENERATE_AGE_MAP    "Generate Particle Age UV Mapping"
-    IDS_PARTICLE_BANK       "Use Particle Trail Banking"
-    IDS_USEALLPFEVENTS      "Use all Events"
-    IDS_PFEVENTLIST         "Event List"
-    IDS_ADDEVENTS           "Add Events"
-    IDS_SKIPPART            "every n'th particle"
-END
-
-STRINGTABLE
-BEGIN
-    IDS_STARTPART           "Start at particle n"
-    IDS_MAPTYPE             "Map Type"
-    IDS_NUMMTLS             "Number Of Materials"
-    IDS_SEGSPERFRAME_RENDER "Segments Per Frame (render)"
-    IDS_SPLINESTEPS_RENDER  "Spline Steps (render)"
-    IDS_SEGSPERFRAME_USE_RENDER "Segments Per Frame (render) enabled."
-    IDS_SPLINESTEPS_USE_RENDER "Spline Steps (render) enabled"
-    IDS_USE_PFLOW_MTLIDS    "Use PFlow Material IDs"
-END
-
-#endif    
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENA)
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
-#pragma code_page(1252)
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Dialog
-//
-
 IDD_ABOUTDLG DIALOGEX 0, 0, 257, 186
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About GhostTrails"
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
     DEFPUSHBUTTON   "OK",IDOK,103,165,50,14
-    CTEXT           "Version 3.80",IDC_STATIC,7,75,243,10
-    CTEXT           "Written by Andrew Reid (andrew.k.reid@gmail.com), Anthony Cassidy, and Co.\n",IDC_STATIC,7,137,243,21
+    CTEXT           "Version 3.81",IDC_STATIC,7,75,243,10
+    CTEXT           "Written by Andrew Reid (andrew.k.reid@gmail.com)\nAnthony Cassidy and Co.",IDC_STATIC,7,137,243,23
     CONTROL         IDB_BITMAP2,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE | SS_REALSIZEIMAGE,7,7,243,67
     CTEXT           "",IDC_ABOUT_LICTEXT,7,90,243,24
     CTEXT           "Visit the GhostTrails website at http://www.ghosttrails.net",IDC_STATIC,7,121,243,13
@@ -381,54 +182,126 @@ END
 #ifdef APSTUDIO_INVOKED
 GUIDELINES DESIGNINFO
 BEGIN
-    IDD_ABOUTDLG, DIALOG
+    IDD_PANEL_MAIN, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 250
+        RIGHTMARGIN, 101
+        VERTGUIDE, 55
+        VERTGUIDE, 56
         TOPMARGIN, 7
-        BOTTOMMARGIN, 179
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_PANEL_MESHPARAMS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_PANEL_APPLY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 101
+    END
+
+    IDD_ABOUTDLG, DIALOG
+    BEGIN
     END
 
     IDD_REGISTER, DIALOG
     BEGIN
-        LEFTMARGIN, 5
-        RIGHTMARGIN, 329
-        VERTGUIDE, 167
-        TOPMARGIN, 6
-        BOTTOMMARGIN, 98
     END
 
     IDD_PANEL_PARTICLE, DIALOG
     BEGIN
-        LEFTMARGIN, 4
-        RIGHTMARGIN, 103
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 298
     END
 
     IDD_PROGRESSDLG, DIALOG
     BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 179
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 64
-    END
-
-    IDD_ADD_DIALOG, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 147
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 182
     END
 END
 #endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 3,8,1,0
+ PRODUCTVERSION 3,8,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x2L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "GhostTrails ghosting modifier for 3dsmax"
+            VALUE "CompanyName", "http://www.ghosttrails.net"
+            VALUE "FileDescription", "GhostTrails"
+            VALUE "FileVersion", "3.8.1.0"
+            VALUE "InternalName", "GhostTrails"
+            VALUE "LegalCopyright", "Copyright 2000-2024 Andrew Reid"
+            VALUE "OriginalFilename", "GhostTrails.dlm"
+            VALUE "ProductName", "GhostTrails"
+            VALUE "ProductVersion", "3.8.1.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
 
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // AFX_DIALOG_LAYOUT
 //
+
+IDD_PANEL_MAIN AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
 
 IDD_ABOUTDLG AFX_DIALOG_LAYOUT
 BEGIN
@@ -456,9 +329,82 @@ IDB_GTLOGO              BITMAP                  "res\\trails_bgthin.bmp"
 
 IDR_IMAGE1              IMAGE                   "res\\tire1.jpg"
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_LIBDESCRIPTION      "GhostTrails"
+    IDS_CATEGORY            "Bytegeist Software"
+    IDS_CLASS_NAME          "GhostTrails"
+    IDS_PARAMS1             "Parameters"
+    IDS_SPIN                "Spin"
+    IDS_FRAMES_SPIN         "Frames"
+    IDS_SEGMENTS_SPIN       "Segments"
+    IDS_FLIPNORMALS         "Flip Normals"
+    IDS_OLDFRAMES_SPIN      "Frames"
+    IDS_SPLINESTEPS_SPIN    "Spline Steps"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STARTFRAME_SPIN     "Start Frame"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ENDFRAME_SPIN       "End Frame"
+    IDS_SEGSPERFRAME_SPIN   "Segments Per Frame"
+    IDS_PARAMS2             "Mesh Parameters"
+    IDS_MOVINGORANCHORED    "Type"
+    IDS_UREPEAT_SPIN        "U Repeat"
+    IDS_VREPEAT_SPIN        "V Repeat"
+    IDS_PARAMS4             "Particle Trails"
+    IDS_APPLY_TEX_B         "Apply Texture"
+    IDS_APPLY_TEX_EDIT      "Texture Path"
+    IDS_APPLY_FADE_B        "Fade"
+    IDS_APPLY_FADE_START    "Fade Start Color"
+    IDS_APPLY_FADE_END      "Fade End Color"
+    IDS_APPLY_FADE_TO       "Fade To"
+    IDS_APPLY_REORIENT_B    "Reorient"
+    IDS_APPLY_TEX_VREPEAT   "Repeat lengthways"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_APPLY_FADE_MP       "Fade Midpoint (similar to gradient midpoint)"
+    IDS_APPLY_FADE_INOUT    "Fade-In or Fade-Out"
+    IDS_PARAMS3             "Effects"
+    IDS_USERANGE            "Use Range"
+    IDS_PARTICLE_B          "Use Particle Trails"
+    IDS_PARTICLE_NODE       "Particle Node"
+    IDS_PARTICLE_NODE_PROMPT "Choose a Particle System"
+    IDS_GENERATE_MAP        "Generate UV Mapping"
+    IDS_GENERATE_AGE_MAP    "Generate Particle Age UV Mapping"
+    IDS_PARTICLE_BANK       "Use Particle Trail Banking"
+    IDS_USEALLPFEVENTS      "Use all Events"
+    IDS_PFEVENTLIST         "Event List"
+    IDS_ADDEVENTS           "Add Events"
+    IDS_SKIPPART            "every n'th particle"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_STARTPART           "Start at particle n"
+    IDS_MAPTYPE             "Map Type"
+    IDS_NUMMTLS             "Number Of Materials"
+    IDS_SEGSPERFRAME_RENDER "Segments Per Frame (render)"
+    IDS_SPLINESTEPS_RENDER  "Spline Steps (render)"
+    IDS_SEGSPERFRAME_USE_RENDER "Segments Per Frame (render) enabled."
+    IDS_SPLINESTEPS_USE_RENDER "Spline Steps (render) enabled"
+    IDS_USE_PFLOW_MTLIDS    "Use PFlow Material IDs"
+END
+
 #endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
-
 
 
 
